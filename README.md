@@ -173,7 +173,7 @@ utilizados foram obtidos a partir de aplicações semelhantes de trabalhos relac
 
 **VGGNet architecture:**
 <figure>
- <img src="VGGNet.png" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/VGGNet.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
@@ -293,7 +293,7 @@ Utilizando o conjunto de testes, busca-se para medir a precisão do modelo em re
 Em seguida, representa-se graficamente a matriz de confusão para ver onde o modelo realmente falha.
 
 <figure>
- <img src="./traffic-signs-data/Screenshots/cm.png" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/matriz.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
@@ -309,7 +309,7 @@ Nesta etapa, utiliza-se o modelo para prever a classe dos sinais de trânsito de
 Número de novas imagens para teste:  5
 
 <figure>
- <img src="./traffic-signs-data/Screenshots/NewImg.png" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/novas_imagens.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
@@ -319,7 +319,7 @@ Essas imagens de teste incluem alguns sinais fáceis de prever e outros sinais s
 
 
 <figure>
- <img src="./traffic-signs-data/Screenshots/TopSoft.png" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/predict.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
