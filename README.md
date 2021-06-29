@@ -93,7 +93,7 @@ Number of classes = 43
 </figure>
 
 
-** Utilizando o `numpy` é exibido o histograma da contagem de imagens em cada classe única.**
+**Utilizando o `numpy` é exibido o histograma da contagem de imagens em cada classe única.**
 
 
 <figure>
@@ -129,6 +129,9 @@ No passo 3 são aplicadas várias etapas de pré-processamento às imagens de en
 2. Grayscaling.
 3. Local Histogram Equalization.
 4. Normalization.
+
+
+
 
 1. **Shuffling**: De forma geral, mistura-se os dados de treinamento para aumentar a aleatoriedade e a variedade no conjunto de dados* de treinamento, para que o modelo seja mais estável. Usaremos sklearn para embaralhar nossos dados.
 
