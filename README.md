@@ -71,47 +71,34 @@ Number of classes = 43
 
 
 <figure>
- <img src="./traffic-signs-data/Screenshots/Train.png" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/data.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
 </figure>
 
 
-<figure>
- <img src="./traffic-signs-data/Screenshots/Test.png" width="1072" alt="Combined Image" />
- <figcaption>
- <p></p> 
- </figcaption>
-</figure>
-
-<figure>
- <img src="./traffic-signs-data/Screenshots/Valid.png" width="1072" alt="Combined Image" />
- <figcaption>
- <p></p> 
- </figcaption>
-</figure>
 
 
 **Utilizando o `numpy` é exibido o histograma da contagem de imagens em cada classe única.**
 
 
 <figure>
- <img src="./traffic-signs-data/Screenshots/TrainHist.png" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/hist_train.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
 </figure>
 
 <figure>
- <img src="./traffic-signs-data/Screenshots/TestHist.png" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/hist_test.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
 </figure>
 
 <figure>
- <img src="./traffic-signs-data/Screenshots/ValidHist.png" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/hist_valid.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
@@ -138,7 +125,7 @@ Normalization.
 2. **Grayscaling**: Imagens em tons de cinza (ao invés de cores) melhora a precisão da rede neural. Nesse caso, utiliza-se o OpenCV para converter as imagens de treinamento em escala de cinza.
 
 <figure>
- <img src="./traffic-signs-data/Screenshots/Gray.png" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/cinza.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
@@ -147,7 +134,7 @@ Normalization.
 3. **Local Histogram Equalization**: Uma vez que o dataset utiliza de imagens reais (baixo contraste), utiliza-se esta técnica para distribuir os valores de intensidade mais frequentes em uma imagem, aprimorando assim essas imagens. Assim sendo, utiliza-se o skimage para aplicar a equalização do histograma local às imagens de treinamento.
 
 <figure>
- <img src="./traffic-signs-data/Screenshots/Equalized.png" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/Equalizado.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
@@ -156,7 +143,7 @@ Normalization.
 4. **Normalization**: Este é um processamento importante, pois os dados da imagem devem ser normalizados para que os dados tenham média zero e variância igual. A normalização busca modificar a faixa de valores da intensidade do pixel.
 
 <figure>
- <img src="./traffic-signs-data/Screenshots/Normalized.png" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/Normalizado.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
@@ -186,7 +173,7 @@ utilizados foram obtidos a partir de aplicações semelhantes de trabalhos relac
 
 **VGGNet architecture:**
 <figure>
- <img src="VGGNet.png" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/VGGnet.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
@@ -306,7 +293,7 @@ Utilizando o conjunto de testes, busca-se para medir a precisão do modelo em re
 Em seguida, representa-se graficamente a matriz de confusão para ver onde o modelo realmente falha.
 
 <figure>
- <img src="./traffic-signs-data/Screenshots/cm.png" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/matriz.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
@@ -322,7 +309,7 @@ Nesta etapa, utiliza-se o modelo para prever a classe dos sinais de trânsito de
 Número de novas imagens para teste:  5
 
 <figure>
- <img src="./traffic-signs-data/Screenshots/NewImg.png" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/novas_imagens.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
@@ -332,7 +319,7 @@ Essas imagens de teste incluem alguns sinais fáceis de prever e outros sinais s
 
 
 <figure>
- <img src="./traffic-signs-data/Screenshots/TopSoft.png" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/predict.png" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
