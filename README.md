@@ -71,7 +71,7 @@ Number of classes = 43
 
 
 <figure>
- <img src="./Screenshots/Train.png" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/data.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
