@@ -1,11 +1,14 @@
 # classificador_traffic_signals
  Desafio Técnico FORD - Jeydson Lopes
  
- # German Traffic Sign Classification Using TensorFlow
-**In this project, I used Python and TensorFlow to classify traffic signs.**
+ # Desafio Técnicno IEL/FORD - Reconhecer e classificar placas de trânsito
+  Jeydson Lopes da Silva
+  
+**O projeto utiliza Python e TensorFlow para reconhecer e classificar placas de trânsito.**
 
-**Dataset used: [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset).
-This dataset has more than 50,000 images of 43 classes.**
+**Dataset: [Traffic Signs / Kaggle Dataset](https://www.kaggle.com/venkateshroshan/traffic-signs).
+**O dataset é composto por mais de 50.000 imagens distribuídas em 43 classes.**
+
 
 **I was able to reach a +99% validation accuracy, and a 97.6% testing accuracy.**
 
