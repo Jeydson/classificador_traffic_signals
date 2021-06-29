@@ -14,16 +14,16 @@
 
 ## Pipeline:
 - **Load Data**
-- **Dataset Summary / Exploration / Featuring**.
-    - Shuffling.
-    - Grayscaling.
-    - Local Histogram Equalization.
-    - Normalization.
+- **Dataset Summary / Exploration / Featuring**
+    - Shuffling
+    - Grayscaling
+    - Local Histogram Equalization
+    - Normalization
 - **Model**
     - VGGNet
-- **Model Training and Evaluation.**
-- **Testing the Model Using the Test Set.**
-- **Testing the Model on New Images.**
+- **Model Training and Evaluation**
+- **Testing the Model Using the Test Set**
+- **Testing the Model on New Images**
 - **Deployment**
 
 
@@ -93,7 +93,7 @@ Number of classes = 43
 </figure>
 
 
-**And finally, we will use `numpy` to plot a histogram of the count of images in each unique class.**
+** Utilizando o `numpy` é exibido o histograma da contagem de imagens em cada classe única.**
 
 
 <figure>
@@ -119,19 +119,20 @@ Number of classes = 43
 
 ---
 
-## Step 3: Data Preprocessing
+## Step 3: Dataset Summary / Exploration / Featuring
 
-In this step, we will apply several preprocessing steps to the input images to achieve the best possible results.
+No passo 3 são aplicadas várias etapas de pré-processamento às imagens de entrada, obtendo assim melhores condições para o treinamento do modelo.
 
-**We will use the following preprocessing techniques:**
+**Técnicas utilizadas:**
+
 1. Shuffling.
 2. Grayscaling.
 3. Local Histogram Equalization.
 4. Normalization.
 
-1. **Shuffling**: In general, we shuffle the training data to increase randomness and variety in training dataset, in order for the model to be more stable. We will use `sklearn` to shuffle our data.
+1. **Shuffling**: De forma geral, mistura-se os dados de treinamento para aumentar a aleatoriedade e a variedade no conjunto de dados* de treinamento, para que o modelo seja mais estável. Usaremos sklearn para embaralhar nossos dados.
 
-2. **Grayscaling**: In their paper ["Traffic Sign Recognition with Multi-Scale Convolutional Networks"](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) published in 2011, P. Sermanet and Y. LeCun stated that using grayscale images instead of color improves the ConvNet's accuracy. We will use `OpenCV` to convert the training images into grey scale.
+2. **Grayscaling**: Imagens em tons de cinza (ao invés de cores) melhora a precisão da rede neural. Nesse caso, utiliza-se o OpenCV para converter as imagens de treinamento em escala de cinza.
 
 <figure>
  <img src="./traffic-signs-data/Screenshots/Gray.png" width="1072" alt="Combined Image" />
@@ -140,7 +141,7 @@ In this step, we will apply several preprocessing steps to the input images to a
  </figcaption>
 </figure>
 
-3. **Local Histogram Equalization**: This technique simply spreads out the most frequent intensity values in an image, resulting in enhancing images with low contrast. Applying this technique will be very helpfull in our case since the dataset in hand has real world images, and many of them has low contrast. We will use `skimage` to apply local histogram equalization to the training images.
+3. **Local Histogram Equalization**: Uma vez que o dataset utiliza de imagens reais (baixo contraste), utiliza-se esta técnica para distribuir os valores de intensidade mais frequentes em uma imagem, aprimorando assim essas imagens. Assim sendo, utiliza-se o skimage para aplicar a equalização do histograma local às imagens de treinamento.
 
 <figure>
  <img src="./traffic-signs-data/Screenshots/Equalized.png" width="1072" alt="Combined Image" />
@@ -149,7 +150,7 @@ In this step, we will apply several preprocessing steps to the input images to a
  </figcaption>
 </figure>
 
-4. **Normalization**: Normalization is a process that changes the range of pixel intensity values. Usually the image data should be normalized so that the data has mean zero and equal variance.
+4. **Normalization**: Este é um processamento importante, pois os dados da imagem devem ser normalizados para que os dados tenham média zero e variância igual. A normalização busca modificar a faixa de valores da intensidade do pixel.
 
 <figure>
  <img src="./traffic-signs-data/Screenshots/Normalized.png" width="1072" alt="Combined Image" />
@@ -160,62 +161,25 @@ In this step, we will apply several preprocessing steps to the input images to a
 
 ---
 
-## Step 3: Design a Model Architecture
+## Step 3: Model
 
-In this step, we will design and implement a deep learning model that learns to recognize traffic signs from our dataset [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset).
+Nesta etapa, iremos projetar e implementar um modelo de aprendizado profundo que aprende a reconhecer sinais de trânsito do dataset Traffic Sign do Kaggle.
 
-We'll use Convolutional Neural Networks to classify the images in this dataset. The reason behind choosing ConvNets is that they are designed to recognize visual patterns directly from pixel images with minimal preprocessing. They automatically learn hierarchies of invariant features at every level from data.
-We will implement two of the most famous ConvNets. Our goal is to reach an accuracy of +95% on the validation set.
+No modelo será utilizado redes convolucionais (ConvNets) para classificar as imagens deste conjunto de dados. De forma geral, as ConvNets são ideais para reconhecer padrões visuais diretamente dos pixels de imagens com pré-processamento mínimo. As ConvNets aprendem automaticamente hierarquias de recursos invariáveis em todos os níveis a partir dos dados.
 
-I'll start by explaining each network architecture, then implement it using TensorFlow.
-
-**Notes**:
-1. We specify the learning rate of 0.001, which tells the network how quickly to update the weights.
-2. We minimize the loss function using the Adaptive Moment Estimation (Adam) Algorithm. Adam is an optimization algorithm introduced by D. Kingma and J. Lei Ba in a 2015 paper named [Adam: A Method for Stochastic Optimization](https://arxiv.org/abs/1412.6980). Adam algorithm computes adaptive learning rates for each parameter. In addition to storing an exponentially decaying average of past squared gradients like [Adadelta](https://arxiv.org/pdf/1212.5701.pdf) and [RMSprop](https://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf) algorithms, Adam also keeps an exponentially decaying average of past gradients mtmt, similar to [momentum algorithm](http://www.sciencedirect.com/science/article/pii/S0893608098001166?via%3Dihub), which in turn produce better results.
-3. we will run `minimize()` function on the optimizer which use backprobagation to update the network and minimize our training loss.
-
-
-### 1.  LeNet-5
-LeNet-5 is a convolutional network designed for handwritten and machine-printed character recognition. It was introduced by the famous [Yann LeCun](https://en.wikipedia.org/wiki/Yann_LeCun) in his paper [Gradient-Based Learning Applied to Document Recognition](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf) in 1998. Although this ConvNet is intended to classify hand-written digits, we're confident it have a very high accuracy when dealing with traffic signs, given that both hand-written digits and traffic signs are given to the computer in the form of pixel images.
-
-**LeNet-5 architecture:**
-<figure>
- <img src="LeNet.png" width="1072" alt="Combined Image" />
- <figcaption>
- <p></p> 
- </figcaption>
-</figure>
-
-This ConvNet follows these steps:
-
-Input => Convolution => ReLU => Pooling => Convolution => ReLU => Pooling => FullyConnected => ReLU => FullyConnected
-
-**Layer 1 (Convolutional):** The output shape should be 28x28x6.
-
-**Activation.** Your choice of activation function.
-
-**Pooling.** The output shape should be 14x14x6.
-
-**Layer 2 (Convolutional):** The output shape should be 10x10x16.
-
-**Activation.** Your choice of activation function.
-
-**Pooling.** The output shape should be 5x5x16.
-
-**Flattening:** Flatten the output shape of the final pooling layer such that it's 1D instead of 3D.
-
-**Layer 3 (Fully Connected):** This should have 120 outputs.
-
-**Activation.** Your choice of activation function.
-
-**Layer 4 (Fully Connected):** This should have 84 outputs.
-
-**Activation.** Your choice of activation function.
-
-**Layer 5 (Fully Connected):** This should have 10 outputs.
+O modelo é implementado utilizando o framework TensorFlow.
 
 ### 2.  VGGNet
-VGGNet was first introduced in 2014 by K. Simonyan and A. Zisserman from the University of Oxford in a paper called [Very Deep Convolutional Networks for Large-Scale Image Recognition](https://arxiv.org/pdf/1409.1556.pdf). They were investigating the convolutional network depth on its accuracy in the large-scale image recognition setting. Their main contribution is a thorough evaluation of networks of increasing depth using an architecture with very small (3x3) convolution filters, which shows that a significant improvement on the prior-art configurations can be achieved by pushing the depth to 16-19 weight layers.
+
+A VGGNet apresenta uma melhoria em relação a algumas ConvNEts, como a Lenet por exemplo. Este fato se dá pela avaliação completa de redes de profundidade crescente usando uma arquitetura com filtros de convolução muito pequenos (3x3).
+
+Nesse caso, a arquitetura VGGNet utilizará 12 camadas.
+
+Input -- Convolution -- ReLU --Convolution -- ReLU --Pooling -- Convolution --ReLU -- Convolution -- ReLU -- Pooling -- Convolution -- ReLU -- Convolution -- ReLU -- Pooling -- FullyConnected -- ReLU -- FullyConnected -- ReLU -- FullyConnected
+
+De formar a facilitar o desenvolvimento do modelo, a arquitetura, parâmetros e hiperâmetros
+
+utilizados foram obtidos a partir de aplicações semelhantes de trabalhos relacionados.
 
 **VGGNet architecture:**
 <figure>
@@ -225,53 +189,48 @@ VGGNet was first introduced in 2014 by K. Simonyan and A. Zisserman from the Uni
  </figcaption>
 </figure>
 
-The original VGGNet architecture has 16-19 layers, but I've excluded some of them and implemented a modified version of only 12 layers to save computational resources.
 
-This ConvNet follows these steps:
+**Layer 1 (Convolutional):** Saída shape = 32x32x32.
 
-Input => Convolution => ReLU => Convolution => ReLU => Pooling => Convolution => ReLU => Convolution => ReLU => Pooling => Convolution => ReLU => Convolution => ReLU => Pooling => FullyConnected => ReLU => FullyConnected => ReLU => FullyConnected
+**Activation.** Relu.
 
-**Layer 1 (Convolutional):** The output shape should be 32x32x32.
+**Layer 2 (Convolutional):** Saída shape = 2x32x32.
 
-**Activation.** Your choice of activation function.
+**Activation.** Relu.
 
-**Layer 2 (Convolutional):** The output shape should be 32x32x32.
+**Layer 3 (Pooling)** Saída shape = 16x16x32.
 
-**Activation.** Your choice of activation function.
+**Layer 4 (Convolutional):** Saída shape = 16x16x64.
 
-**Layer 3 (Pooling)** The output shape should be 16x16x32.
+**Activation.** Relu.
 
-**Layer 4 (Convolutional):** The output shape should be 16x16x64.
+**Layer 5 (Convolutional):** Saída shape = 16x16x64.
 
-**Activation.** Your choice of activation function.
+**Activation.** Relu.
 
-**Layer 5 (Convolutional):** The output shape should be 16x16x64.
+**Layer 6 (Pooling)** Saída shape = 8x8x64.
 
-**Activation.** Your choice of activation function.
+**Layer 7 (Convolutional):** Saída shape = 8x8x128.
 
-**Layer 6 (Pooling)** The output shape should be 8x8x64.
+**Activation.** Relu.
 
-**Layer 7 (Convolutional):** The output shape should be 8x8x128.
+**Layer 8 (Convolutional):** Saída shape = 8x8x128.
 
-**Activation.** Your choice of activation function.
+**Activation.** Relu.
 
-**Layer 8 (Convolutional):** The output shape should be 8x8x128.
+**Layer 9 (Pooling)** Saída shape = 4x4x128.
 
-**Activation.** Your choice of activation function.
+**Flattening:** Saída 1D ao invés de 3D.
 
-**Layer 9 (Pooling)** The output shape should be 4x4x128.
+**Layer 10 (Fully Connected):** Saída = 128 outputs.
 
-**Flattening:** Flatten the output shape of the final pooling layer such that it's 1D instead of 3D.
+**Activation.** Relu.
 
-**Layer 10 (Fully Connected):** This should have 128 outputs.
+**Layer 11 (Fully Connected):** Saída = 128 outputs.
 
-**Activation.** Your choice of activation function.
+**Activation.** Relu.
 
-**Layer 11 (Fully Connected):** This should have 128 outputs.
-
-**Activation.** Your choice of activation function.
-
-**Layer 12 (Fully Connected):** This should have 43 outputs.
+**Layer 12 (Fully Connected):** Saída = 43 outputs.
 
 ---
 
