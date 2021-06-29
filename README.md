@@ -78,40 +78,27 @@ Number of classes = 43
 </figure>
 
 
-<figure>
- <img src="./Screenshots/Test.png" width="1072" alt="Combined Image" />
- <figcaption>
- <p></p> 
- </figcaption>
-</figure>
-
-<figure>
- <img src="./Screenshots/Valid.png" width="1072" alt="Combined Image" />
- <figcaption>
- <p></p> 
- </figcaption>
-</figure>
 
 
 **Utilizando o `numpy` é exibido o histograma da contagem de imagens em cada classe única.**
 
 
 <figure>
- <img src="./traffic-signs-data/Screenshots/TrainHist.png" width="1072" alt="Combined Image" />
+ <img src="./traffic-signs-data/Screenshots/hist_train.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
 </figure>
 
 <figure>
- <img src="./traffic-signs-data/Screenshots/TestHist.png" width="1072" alt="Combined Image" />
+ <img src="./traffic-signs-data/Screenshots/hist_test.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
 </figure>
 
 <figure>
- <img src="./traffic-signs-data/Screenshots/ValidHist.png" width="1072" alt="Combined Image" />
+ <img src="./traffic-signs-data/Screenshots/hist_valid.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
