@@ -71,7 +71,7 @@ Number of classes = 43
 
 
 <figure>
- <img src="./traffic-signs-data/Screenshots/Train.png" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/Train.png" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
@@ -79,14 +79,14 @@ Number of classes = 43
 
 
 <figure>
- <img src="./traffic-signs-data/Screenshots/Test.png" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/Test.png" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
 </figure>
 
 <figure>
- <img src="./traffic-signs-data/Screenshots/Valid.png" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/Valid.png" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
