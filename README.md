@@ -32,20 +32,22 @@
 -  Python 3.6.2
 -  TensorFlow 1.15.0 (GPU support)
 
-#### Environement:
+#### Requerimentst:
 - requeriments.txt
 
 ---
-## Step 1: Load The Data
+## Step 1: Load Data
 
-Download the dataset from [here](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/5898cd6f_traffic-signs-data/traffic-signs-data.zip). This is a pickled dataset in which we've already resized the images to 32x32.
 
-We already have three `.p` files of 32x32 resized images:
-- `train.p`: The training set.
-- `test.p`: The testing set.
-- `valid.p`: The validation set.
+Os arquivos de dados para o modelo podem ser carregados previamente a partira da pasatas "data signs" ou  obtidos a partir 
+de processamento dos arquivos .csv da pasta "Traffic signs".
 
-We will use Python `pickle` to load the data.
+Existem 3 arquvios `.pickle` com imagens previamente redimensionadas para o tamanho de 32x32:
+- `train.pickle`: The training set.
+- `test.pickle`: The testing set.
+- `valid.pickle`: The validation set.
+
+O processo para a obtenção desses arquivos é feito na etapa 2.
 
 ---
 
