@@ -239,87 +239,54 @@ utilizados foram obtidos a partir de aplicações semelhantes de trabalhos relac
 
 ## Step 4: Model Training and Evaluation
 
-In this step, we will train our model using `normalized_images`, then we'll compute softmax cross entropy between `logits` and `labels` to measure the model's error probability.
+Nesta etapa o modelo é utilizado para calcular a softmax cross entropy entre os logits e os labels das imagens.
 
-The `keep_prob` and `keep_prob_conv` variables will be used to control the dropout rate when training the neural network.
-Overfitting is a serious problem in deep nural networks. Dropout is a technique for addressing this problem.
-The key idea is to randomly drop units (along with their connections) from the neural network during training. This prevents units from co-adapting too much. During training, dropout samples from an exponential number of different “thinned” networks. At test time, it is easy to approximate the effect of averaging the predictions of all these thinned networks by simply using a single unthinned network that has smaller weights. This significantly reduces overfitting and gives major improvements over other regularization methods. This technique was introduced by N. Srivastava, G. Hinton, A. Krizhevsky I. Sutskever, and R. Salakhutdinov in their paper [Dropout: A Simple Way to Prevent Neural Networks from Overfitting](https://www.cs.toronto.edu/~hinton/absps/JMLRdropout.pdf).
+De forma a minimizar este problema pode-se utilizaro Dropout. O Dropout é uma técnica busca descartar unidades aleatoriamente (junto com suas conexões) da rede neural durante o treinamento. Isso evita que as unidades se adaptem demais.
 
-Now, we'll run the training data through the training pipeline to train the model.
-- Before each epoch, we'll shuffle the training set.
-- After each epoch, we measure the loss and accuracy of the validation set.
-- And after training, we will save the model.
-- A low accuracy on the training and validation sets imply underfitting. A high accuracy on the training set but low accuracy on the validation set implies overfitting.
+As variáveis `keep_prob` e `keep_prob_convsão utilizadas` para controlar a taxa de dropout ao treinar a ConvNet.
 
-### LeNet Model
-```
-EPOCH 1 : Validation Accuracy = 81.451%
-EPOCH 2 : Validation Accuracy = 87.755%
-EPOCH 3 : Validation Accuracy = 90.113%
-EPOCH 4 : Validation Accuracy = 91.519%
-EPOCH 5 : Validation Accuracy = 90.658%
-EPOCH 6 : Validation Accuracy = 92.608%
-EPOCH 7 : Validation Accuracy = 92.902%
-EPOCH 8 : Validation Accuracy = 92.585%
-EPOCH 9 : Validation Accuracy = 92.993%
-EPOCH 10 : Validation Accuracy = 92.766%
-EPOCH 11 : Validation Accuracy = 93.356%
-EPOCH 12 : Validation Accuracy = 93.469%
-EPOCH 13 : Validation Accuracy = 93.832%
-EPOCH 14 : Validation Accuracy = 94.603%
-EPOCH 15 : Validation Accuracy = 93.333%
-EPOCH 16 : Validation Accuracy = 93.787%
-EPOCH 17 : Validation Accuracy = 94.263%
-EPOCH 18 : Validation Accuracy = 92.857%
-EPOCH 19 : Validation Accuracy = 93.832%
-EPOCH 20 : Validation Accuracy = 93.605%
-EPOCH 21 : Validation Accuracy = 93.447%
-EPOCH 22 : Validation Accuracy = 94.286%
-EPOCH 23 : Validation Accuracy = 94.671%
-EPOCH 24 : Validation Accuracy = 94.172%
-EPOCH 25 : Validation Accuracy = 94.399%
-EPOCH 26 : Validation Accuracy = 95.057%
-EPOCH 27 : Validation Accuracy = 95.329%
-EPOCH 28 : Validation Accuracy = 94.218%
-EPOCH 29 : Validation Accuracy = 94.286%
-EPOCH 30 : Validation Accuracy = 94.853%
-```
-We've been able to reach a maximum accuracy of **95.3%** on the validation set over 30 epochs, using a learning rate of 0.001.
 
-Now, we'll train the VGGNet model and evaluate it's accuracy.
+
+
+**Pipeline de treinamento para treinar o modelo**
+
+- Antes de cada época, embaralharemos o conjunto de treinamento.
+- Após cada época, mede-se a perda e a precisão do conjunto de validação.
+- Após o treinamento, salva-se o modelo.
+- Uma baixa precisão nos conjuntos de treinamento e validação implica em ajuste insuficiente. Uma alta precisão no conjunto de treinamento, mas baixa precisão no conjunto de validação implica overfitting.
 
 ### VGGNet Model
 ```
-EPOCH 1 : Validation Accuracy = 31.655%
-EPOCH 2 : Validation Accuracy = 59.592%
-EPOCH 3 : Validation Accuracy = 78.639%
-EPOCH 4 : Validation Accuracy = 88.617%
-EPOCH 5 : Validation Accuracy = 92.812%
-EPOCH 6 : Validation Accuracy = 95.601%
-EPOCH 7 : Validation Accuracy = 96.667%
-EPOCH 8 : Validation Accuracy = 97.528%
-EPOCH 9 : Validation Accuracy = 98.390%
-EPOCH 10 : Validation Accuracy = 98.322%
-EPOCH 11 : Validation Accuracy = 98.776%
-EPOCH 12 : Validation Accuracy = 98.730%
-EPOCH 13 : Validation Accuracy = 98.617%
-EPOCH 14 : Validation Accuracy = 98.571%
-EPOCH 15 : Validation Accuracy = 99.025%
-EPOCH 16 : Validation Accuracy = 99.116%
-EPOCH 17 : Validation Accuracy = 98.776%
-EPOCH 18 : Validation Accuracy = 98.707%
-EPOCH 19 : Validation Accuracy = 98.526%
-EPOCH 20 : Validation Accuracy = 98.685%
-EPOCH 21 : Validation Accuracy = 99.297%
-EPOCH 22 : Validation Accuracy = 99.320%
-EPOCH 23 : Validation Accuracy = 99.297%
-EPOCH 24 : Validation Accuracy = 99.161%
-EPOCH 25 : Validation Accuracy = 98.798%
-EPOCH 26 : Validation Accuracy = 98.707%
-EPOCH 27 : Validation Accuracy = 99.048%
-EPOCH 28 : Validation Accuracy = 99.116%
-EPOCH 29 : Validation Accuracy = 98.458%
-EPOCH 30 : Validation Accuracy = 99.161%
+EPOCH 1 : Validation Accuracy = 35.089%
+EPOCH 2 : Validation Accuracy = 69.711%
+EPOCH 3 : Validation Accuracy = 84.378%
+EPOCH 4 : Validation Accuracy = 91.600%
+EPOCH 5 : Validation Accuracy = 96.200%
+EPOCH 6 : Validation Accuracy = 97.600%
+EPOCH 7 : Validation Accuracy = 97.822%
+EPOCH 8 : Validation Accuracy = 97.756%
+EPOCH 9 : Validation Accuracy = 98.800%
+EPOCH 10 : Validation Accuracy = 98.911%
+EPOCH 11 : Validation Accuracy = 99.422%
+EPOCH 12 : Validation Accuracy = 99.644%
+EPOCH 13 : Validation Accuracy = 99.600%
+EPOCH 14 : Validation Accuracy = 99.578%
+EPOCH 15 : Validation Accuracy = 99.800%
+EPOCH 16 : Validation Accuracy = 99.711%
+EPOCH 17 : Validation Accuracy = 99.822%
+EPOCH 18 : Validation Accuracy = 99.733%
+EPOCH 19 : Validation Accuracy = 99.711%
+EPOCH 20 : Validation Accuracy = 99.800%
+EPOCH 21 : Validation Accuracy = 99.778%
+EPOCH 22 : Validation Accuracy = 99.822%
+EPOCH 23 : Validation Accuracy = 99.800%
+EPOCH 24 : Validation Accuracy = 99.644%
+EPOCH 25 : Validation Accuracy = 99.844%
+EPOCH 26 : Validation Accuracy = 99.867%
+EPOCH 27 : Validation Accuracy = 99.622%
+EPOCH 28 : Validation Accuracy = 99.867%
+EPOCH 29 : Validation Accuracy = 99.867%
+EPOCH 30 : Validation Accuracy = 99.756%
 ```
 
 Using VGGNet, we've been able to reach a maximum **validation accuracy of 99.3%**. As you can observe, the model has nearly saturated after only 10 epochs, so we can reduce the epochs to 10 and save computational resources.
