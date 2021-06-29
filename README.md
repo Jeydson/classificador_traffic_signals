@@ -173,7 +173,7 @@ utilizados foram obtidos a partir de aplicações semelhantes de trabalhos relac
 
 **VGGNet architecture:**
 <figure>
- <img src="./Screenshots/VGGNet.PNG" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/VGGnet.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
@@ -319,7 +319,7 @@ Essas imagens de teste incluem alguns sinais fáceis de prever e outros sinais s
 
 
 <figure>
- <img src="./Screenshots/predict.PNG" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/predict.png" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
