@@ -32,7 +32,7 @@
 -  Python 3.6.2
 -  TensorFlow 1.15.0 (GPU support)
 
-#### Requerimentst:
+#### Requeriments:
 - requeriments.txt
 
 ---
