@@ -10,30 +10,30 @@
 **O dataset é composto por mais de 50.000 imagens distribuídas em 43 classes.**
 
 
-**I was able to reach a +99% validation accuracy, and a 97.6% testing accuracy.**
 
-## Pipeline architecture:
-- **Load The Data.**
-- **Dataset Summary & Exploration**
-- **Data Preprocessing**.
+
+## Pipeline:
+- **Load Data.**
+- **Dataset Summary / Exploration / Featuring**.
     - Shuffling.
     - Grayscaling.
     - Local Histogram Equalization.
     - Normalization.
-- **Design a Model Architecture.**
-    - LeNet-5.
-    - VGGNet.
+- **Model**
+    - VGGNet
 - **Model Training and Evaluation.**
 - **Testing the Model Using the Test Set.**
 - **Testing the Model on New Images.**
+- **Deployment**
 
-I'll explain each step in details below.
+
 
 #### Environement:
--  Ubuntu 16.04
--  Anaconda 5.0.1
 -  Python 3.6.2
--  TensorFlow 0.12.1 (GPU support)
+-  TensorFlow 1.15.0 (GPU support)
+
+#### Environement:
+- requeriments.txt
 
 ---
 ## Step 1: Load The Data
