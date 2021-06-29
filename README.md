@@ -125,7 +125,7 @@ Normalization.
 2. **Grayscaling**: Imagens em tons de cinza (ao invés de cores) melhora a precisão da rede neural. Nesse caso, utiliza-se o OpenCV para converter as imagens de treinamento em escala de cinza.
 
 <figure>
- <img src="./Screenshots/cinza.png" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/cinza.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
@@ -134,7 +134,7 @@ Normalization.
 3. **Local Histogram Equalization**: Uma vez que o dataset utiliza de imagens reais (baixo contraste), utiliza-se esta técnica para distribuir os valores de intensidade mais frequentes em uma imagem, aprimorando assim essas imagens. Assim sendo, utiliza-se o skimage para aplicar a equalização do histograma local às imagens de treinamento.
 
 <figure>
- <img src="./Screenshots/Equalizado.png" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/Equalizado.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
@@ -143,7 +143,7 @@ Normalization.
 4. **Normalization**: Este é um processamento importante, pois os dados da imagem devem ser normalizados para que os dados tenham média zero e variância igual. A normalização busca modificar a faixa de valores da intensidade do pixel.
 
 <figure>
- <img src="./Screenshots/Normalizado.png" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/Normalizado.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
