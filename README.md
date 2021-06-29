@@ -13,7 +13,7 @@
 
 
 ## Pipeline:
-- **Load Data.**
+- **Load Data**
 - **Dataset Summary / Exploration / Featuring**.
     - Shuffling.
     - Grayscaling.
@@ -51,23 +51,23 @@ O processo para a obtenção desses arquivos é feito na etapa 2.
 
 ---
 
-## Step 2: Dataset Summary & Exploration
+## Step 2: Dataset Summary / Exploration / Featuring
 
-The pickled data is a dictionary with 4 key/value pairs:
+Os arquivos/dados são caracterizados por dicionários da seguinte forma:
 
-- `'features'` is a 4D array containing raw pixel data of the traffic sign images, (num examples, width, height, channels).
-- `'labels'` is a 1D array containing the label/class id of the traffic sign. The file `signnames.csv` contains id -> name mappings for each id.
-- `'sizes'` is a list containing tuples, (width, height) representing the original width and height the image.
-- `'coords'` is a list containing tuples, (x1, y1, x2, y2) representing coordinates of a bounding box around the sign in the image.
+- `'features'` é um array multidimensional (4D) dos pixels das imagens dos traffic signs (num examples, width, height, channels).
+- `'labels'` é um array (1D) contendo o label/class do traffic sign.
+- `'sizes'` é uma lista contendo tuplas (width, height), representando os a largura e tamanho orginais das imagens.
+- `'coords'` é uma lista contendo tuplas, (x1, y1, x2, y2), representando as coordenadas dos bounding box em torno do sinal na imagem.
 
-**First, we will use `numpy` provide the number of images in each subset, in addition to the image size, and the number of unique classes.**
-Number of training examples:  34799
+**Nesta aplicação, optou-se por utilizar as seguintes estruturas para os dados do dataset.**
+Number of training examples:  34709
 Number of testing examples:  12630
-Number of validation examples:  4410
+Number of validation examples:  4500
 Image data shape = (32, 32, 3)
 Number of classes = 43
 
-**Then, we used `matplotlib` plot sample images from each subset.**
+**Assim, utilizou-se o `matplotlib` para exibir amostras de imagem de cada subconjunto.**
 
 
 <figure>
