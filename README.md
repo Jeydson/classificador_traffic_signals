@@ -125,10 +125,10 @@ No passo 3 são aplicadas várias etapas de pré-processamento às imagens de en
 
 **Técnicas utilizadas:**
 
-1. Shuffling.
-2. Grayscaling.
-3. Local Histogram Equalization.
-4. Normalization.
+Shuffling.
+Grayscaling.
+Local Histogram Equalization.
+Normalization.
 
 
 
