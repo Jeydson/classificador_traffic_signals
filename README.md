@@ -243,7 +243,7 @@ Nesta etapa o modelo é utilizado para calcular a softmax cross entropy entre os
 
 De forma a minimizar este problema pode-se utilizaro Dropout. O Dropout é uma técnica busca descartar unidades aleatoriamente (junto com suas conexões) da rede neural durante o treinamento. Isso evita que as unidades se adaptem demais.
 
-As variáveis `keep_prob` e `keep_prob_convsão utilizadas` para controlar a taxa de dropout ao treinar a ConvNet.
+As variáveis `keep_prob` e `keep_prob_conv` são  utilizadas para controlar a taxa de dropout ao treinar a ConvNet.
 
 
 
@@ -289,19 +289,21 @@ EPOCH 29 : Validation Accuracy = 99.867%
 EPOCH 30 : Validation Accuracy = 99.756%
 ```
 
-Using VGGNet, we've been able to reach a maximum **validation accuracy of 99.3%**. As you can observe, the model has nearly saturated after only 10 epochs, so we can reduce the epochs to 10 and save computational resources.
+Usando o VGGNet, obteve-se uma máxima precisão de **validação de 99,86% **. 
 
-We'll use this model to predict the labels of the test set.
+Este modelo será utilizado para predizer os labels do conjunto de teste.
+
 
 
 ---
 
 ## Step 5: Testing the Model using the Test Set
 
-Now, we'll use the testing set to measure the accuracy of the model over unknown examples.
-We've been able to reach a **Test accuracy of 97.6%**. A remarkable performance.
+Utilizando o conjunto de testes, busca-se para medir a precisão do modelo em relação a exemplos desconhecidos
+**Acurácia do teste = 97.2%**.
 
-Now we'll plot the confusion matrix to see where the model actually fails.
+
+Em seguida, representa-se graficamente a matriz de confusão para ver onde o modelo realmente falha.
 
 <figure>
  <img src="./traffic-signs-data/Screenshots/cm.png" width="1072" alt="Combined Image" />
@@ -310,14 +312,14 @@ Now we'll plot the confusion matrix to see where the model actually fails.
  </figcaption>
 </figure>
 
-We observe some clusters in the confusion matrix above. It turns out that the various speed limits are sometimes misclassified among themselves. Similarly, traffic signs with traingular shape are misclassified among themselves. We can further improve on the model using hierarchical CNNs to first identify broader groups (like speed signs) and then have CNNs to classify finer features (such as the actual speed limit).
+A partir da matriz de confusão é possível observar que os vários limites de velocidade às vezes são classificados de forma errada entre si. Da mesma forma, os sinais de trânsito com formato traingular são classificados erroneamente entre si.
 
 ---
 
 ## Step 6: Testing the Model on New Images
 
-In this step, we will use the model to predict traffic signs type of 5 random images of German traffic signs from the web our model's performance on these images.
-Number of new testing examples:  5
+Nesta etapa, utiliza-se o modelo para prever a classe dos sinais de trânsito de imagens aleatórias.
+Número de novas imagens para teste:  5
 
 <figure>
  <img src="./traffic-signs-data/Screenshots/NewImg.png" width="1072" alt="Combined Image" />
@@ -326,11 +328,8 @@ Number of new testing examples:  5
  </figcaption>
 </figure>
 
-These test images include some easy to predict signs, and other signs are considered hard for the model to predict.
+Essas imagens de teste incluem alguns sinais fáceis de prever e outros sinais são considerados difíceis de prever pelo modelo.
 
-For instance, we have easy to predict signs like the "Stop" and the "No entry". The two signs are clear and belong to classes where the model can predict with  high accuracy.
-
-On the other hand, we have signs belong to classes where has poor accuracy, like the "Speed limit" sign, because as stated above it turns out that the various speed limits are sometimes misclassified among themselves, and the "Pedestrians" sign, because traffic signs with traingular shape are misclassified among themselves.
 
 <figure>
  <img src="./traffic-signs-data/Screenshots/TopSoft.png" width="1072" alt="Combined Image" />
@@ -339,21 +338,23 @@ On the other hand, we have signs belong to classes where has poor accuracy, like
  </figcaption>
 </figure>
 
-As we can notice from the top 5 softmax probabilities, the model has very high confidence (100%) when it comes to predict simple signs, like the "Stop" and the "No entry" sign, and even high confidence when predicting simple triangular signs in a very clear image, like the "Yield" sign.
 
-On the other hand, the model's confidence slightly reduces with more complex triangular sign in a "pretty noisy" image, in the "Pedestrian" sign image, we have a triangular sign with a shape inside it, and the images copyrights adds some noise to the image, the model was able to predict the true class, but with 80% confidence.
+Nota-se que nas 5 principais probabilidades de softmax, o modelo tem uma confiança muito alta quando se refere a prever sinais simples, como o sinal de "Pare" e "Sem entrada", e até mesmo alta confiança ao prever sinais triangulares simples sinais em uma imagem muito clara, como o sinal "Rendimento".
 
-And in the "Speed limit" sign, we can observe that the model accurately predicted that it's a "Speed limit" sign, but was somehow confused between the different speed limits. However, it predicted the true class at the end.
+Por outro lado, a confiança do modelo diminui um pouco com o sinal triangular mais complexo em uma imagem "muito barulhenta", na imagem da placa "Pedestre", temos um sinal triangular com uma forma dentro dele, e os direitos autorais das imagens adicionam algum ruído. pela imagem, o modelo foi capaz de prever a verdadeira aula, mas com 80% de confiança.
 
-The VGGNet model was able to predict the right class for each of the 5 new test images. Test Accuracy = 100.0%.
-In all cases, the model was very certain (80% - 100%).
+E no sinal de "Limite de velocidade", podemos observar que o modelo previu com precisão que se trata de um sinal de "Limite de velocidade", mas foi de alguma forma confundido entre os diferentes limites de velocidade. No entanto, previu a verdadeira placa no final.
+
+O modelo VGGNet foi capaz de prever a classe certa para cada uma das 5 novas imagens de teste.
+
+
+Usando VGGNet, conseguimos atingir uma taxa de precisão muito alta. Podemos observar que os modelos saturam após quase 10 épocas, então podemos economizar alguns recursos computacionais e reduzir o número de épocas para 20. Também podemos tentar outras técnicas de pré-processamento para melhorar ainda mais a precisão do modelo. Podemos melhorar ainda mais o modelo usando CNNs hierárquicos para primeiro identificar grupos mais amplos (como sinais de trânsito) e, em seguida, ter CNNs para classificar características mais refinadas (como o limite de velocidade real). Este modelo funcionará apenas em exemplos de entrada onde os sinais de trânsito estão centralizados no meio da imagem. Não tem a capacidade de detectar sinais nos cantos da imagem.
 
 
 ---
 
-## Conclusion
+## Deployment
 
-Using VGGNet, we've been able to reach a very high accuracy rate. We can observe that the models saturate after nearly 10 epochs, so we can save some computational resources and reduce the number of epochs to 10.
-We can also try other preprocessing techniques to further improve the model's accuracy..
-We can further improve on the model using hierarchical CNNs to first identify broader groups (like speed signs) and then have CNNs to classify finer features (such as the actual speed limit)
-This model will only work on input examples where the traffic signs are centered in the middle of the image. It doesn't have the capability to detect signs in the image corners.
+Ao realizar o deployment de aplicações, em resumo cria-se versões dessas aplicações no correspondente no App Engine. De formar geral, pode-se implantar aplicativos inteiros, incluindo todo o código-fonte e arquivos de configuração, ou pode implantar e atualizar versões individuais ou arquivos de configuração. Existem diversas opções interessantes para o deploymente, destacando o Google Cloud.
+
+Google Cloud Platform provides infrastructure as a service, platform as a service, and serverless computing environments.
