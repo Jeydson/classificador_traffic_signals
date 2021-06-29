@@ -84,21 +84,21 @@ Number of classes = 43
 
 
 <figure>
- <img src="./traffic-signs-data/Screenshots/hist_train.PNG" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/hist_train.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
 </figure>
 
 <figure>
- <img src="./traffic-signs-data/Screenshots/hist_test.PNG" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/hist_test.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
 </figure>
 
 <figure>
- <img src="./traffic-signs-data/Screenshots/hist_valid.PNG" width="1072" alt="Combined Image" />
+ <img src="./Screenshots/hist_valid.PNG" width="1072" alt="Combined Image" />
  <figcaption>
  <p></p> 
  </figcaption>
