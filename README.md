@@ -348,18 +348,22 @@ Google Cloud Platform provides infrastructure as a service, platform as a servic
 
 ## API
 
-O API desenvolvido (api_pred.py) utiliza um modelo treinado da rede VGGnet localizado em "Saved_Models"
+O API desenvolvido (api_pred.py) utiliza um modelo pré-treinado da rede VGGnet localizado em "Saved_Models".
 
-Para realizar prediçõe no API, deve-se inserir as imagens na pasta api_image_test.
+
+Para realizar predições no API, deve-se inserir as imagens na pasta api_image_test.
+
+O API recebe as imagens na pasta e retorna as predições de cada objeto.
+
 O API funciona no localhost (http://localhost:2000/), possuindo as seguintes rotas:
 
-http://localhost:2000/predicao -- Realiza o reconhecimento e classificação das imagens.
+http://localhost:2000/predicao --> Realiza o reconhecimento e classificação das imagens.
 
-http://localhost:2000/files  - Lista as imagens disponíveis na pasta api_image_test.
+http://localhost:2000/files --> Lista as imagens disponíveis na pasta api_image_test.
 
 http://localhost:2000/files/<path:path> -- Realiza o download da imagem.
 
-http://localhost:2000/files/<filename> -- Realiza o upload de imagem.
+http://localhost:2000/files/<filename> --> Realiza o upload de imagem.
 
 
 
