@@ -354,12 +354,13 @@ Para realizar prediçõe no API, deve-se inserir as imagens na pasta api_image_t
 O API funciona no localhost (http://localhost:2000/), possuindo as seguintes rotas:
 
 http://localhost:2000/predicao -- Realiza o reconhecimento e classificação das imagens.
-http://localhost:2000/files  - Lista as imagens disponíveis na pasta api_image_test
-http://localhost:2000/files/<path:path> -- Realiza o download da imagem
-http://localhost:2000/files/<filename> -- Realiza o upload de imagem
+
+http://localhost:2000/files  - Lista as imagens disponíveis na pasta api_image_test.
+
+http://localhost:2000/files/<path:path> -- Realiza o download da imagem.
+
+http://localhost:2000/files/<filename> -- Realiza o upload de imagem.
 
 
-Ao realizar o deployment de aplicações, em resumo cria-se versões dessas aplicações no correspondente no App Engine. De formar geral, pode-se implantar aplicativos inteiros, incluindo todo o código-fonte e arquivos de configuração, ou pode implantar e atualizar versões individuais ou arquivos de configuração. Existem diversas opções interessantes para o deploymente, destacando o Google Cloud.
 
-Google Cloud Platform provides infrastructure as a service, platform as a service, and serverless computing environments.
 
