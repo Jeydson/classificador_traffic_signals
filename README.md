@@ -344,7 +344,6 @@ Usando VGGNet, conseguimos atingir uma taxa de precisão muito alta. Podemos obs
 
 Ao realizar o deployment de aplicações, em resumo cria-se versões dessas aplicações no correspondente no App Engine. De formar geral, pode-se implantar aplicativos inteiros, incluindo todo o código-fonte e arquivos de configuração, ou pode implantar e atualizar versões individuais ou arquivos de configuração. Existem diversas opções interessantes para o deploymente, destacando o Google Cloud.
 
-Google Cloud Platform provides infrastructure as a service, platform as a service, and serverless computing environments.
 
 ## API
 
