@@ -357,13 +357,13 @@ O API recebe as imagens na pasta e retorna as predições de cada objeto.
 
 O API funciona no localhost (http://localhost:2000/), possuindo as seguintes rotas:
 
-http://localhost:2000/predicao --> Realiza o reconhecimento e classificação das imagens.
+`http://localhost:2000/predicao` --> Realiza o reconhecimento e classificação das imagens.
 
-http://localhost:2000/files --> Lista as imagens disponíveis na pasta api_image_test.
+`http://localhost:2000/files` --> Lista as imagens disponíveis na pasta api_image_test.
 
-http://localhost:2000/files/<path:path> -- Realiza o download da imagem.
+`http://localhost:2000/files/<path:path>` -- Realiza o download da imagem.
 
-http://localhost:2000/files/<filename> --> Realiza o upload de imagem.
+`http://localhost:2000/files/<filename>` --> Realiza o upload de imagem.
 
 
 
