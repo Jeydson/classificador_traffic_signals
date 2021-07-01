@@ -25,6 +25,7 @@
 - **Testing the Model Using the Test Set**
 - **Testing the Model on New Images**
 - **Deployment**
+- **API**
 
 
 
