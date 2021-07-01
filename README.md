@@ -31,6 +31,8 @@
 #### Environement:
 -  Python 3.6.2
 -  TensorFlow 1.14.0 (GPU support)
+-  CUDA v 10.0
+-  cuDNN v 7.4
 
 #### Requeriments:
 - requeriments.txt
