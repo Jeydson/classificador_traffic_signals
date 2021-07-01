@@ -30,7 +30,7 @@
 
 #### Environement:
 -  Python 3.6.2
--  TensorFlow 1.15.0 (GPU support)
+-  TensorFlow 1.14.0 (GPU support)
 
 #### Requeriments:
 - requeriments.txt
